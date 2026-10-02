@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jurusan TKJ — Teknik Komputer dan Jaringan</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f1f5ff;--ink:#14163a;--mut:#4b5280;--card:#fff;--line:#dfe5ff;--blue:#2f5bff;--pink:#ff3d8b;--yel:#ffc928;--cyan:#13d6e8;--grn:#22d38a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d0f2b;--bg2:#141745;--ink:#f3f5ff;--mut:#b3b9e6;--card:#1a1e57;--line:#2c3380}}
+:root[data-theme="dark"]{--bg:#0d0f2b;--bg2:#141745;--ink:#f3f5ff;--mut:#b3b9e6;--card:#1a1e57;--line:#2c3380}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Nunito Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;line-height:1.15;margin:0}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:.5rem}
+p{max-width:68ch}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.7rem 5vw;background:rgba(13,15,43,.92);backdrop-filter:blur(8px)}
+nav b{font-family:Sora;color:#fff;font-size:1.2rem}nav b span{color:var(--yel)}
+nav div{display:flex;gap:1.2rem;flex-wrap:wrap}
+nav a{color:#cfd5ff;text-decoration:none;font-weight:700;font-size:.95rem}
+nav a:hover{color:var(--yel)}
+.hero{position:relative;background:linear-gradient(135deg,#2f5bff 0%,#7b2ff7 55%,#ff3d8b 100%);color:#fff;padding:clamp(3rem,9vw,7rem) 5vw;overflow:hidden;min-height:82vh;display:flex;align-items:center}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero .in{position:relative;max-width:760px}
+.hero h1{font-size:clamp(2.4rem,7.5vw,5rem);font-weight:800}
+.hero h1 em{font-style:normal;background:var(--yel);color:#14163a;padding:0 .25em;border-radius:.2em;display:inline-block;transform:rotate(-2deg)}
+.hero p{font-size:1.2rem;margin:1.2rem 0 2rem}
+.term{background:rgba(10,12,40,.75);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:.8rem 1rem;font:600 .95rem/1.5 ui-monospace,Menlo,monospace;color:#9bffd0;margin-bottom:2rem;max-width:460px;min-height:3.4em}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 1rem Sora,sans-serif;padding:.9rem 1.7rem;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s;margin:0 .6rem .6rem 0}
+.btn.y{background:var(--yel);color:#14163a;box-shadow:0 6px 0 #c99500}
+.btn.w{background:transparent;color:#fff;border:2px solid #fff}
+.btn:hover{transform:translateY(-3px)}.btn.y:hover{box-shadow:0 9px 0 #c99500}.btn.w:hover{background:#fff;color:#2f5bff}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c99500}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+section{padding:clamp(3rem,7vw,5.5rem) 5vw}
+section.alt{background:var(--bg2)}
+.wrap{max-width:1080px;margin:0 auto}
+.sub{color:var(--mut);margin:0 0 2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:1.5rem;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--c,var(--blue));box-shadow:8px 8px 0 var(--c,var(--blue))}
+.card .ic{width:54px;height:54px;border-radius:16px;background:var(--c,var(--blue));display:grid;place-items:center;font-size:1.7rem;margin-bottom:.9rem}
+.card h3{font-size:1.15rem;margin-bottom:.4rem}.card p{margin:0;color:var(--mut);font-size:.97rem}
+.stats{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.stat{flex:1 1 150px;background:var(--blue);color:#fff;border-radius:18px;padding:1rem 1.2rem}
+.stat:nth-child(2){background:var(--pink)}.stat:nth-child(3){background:#0fa9b8}.stat:nth-child(4){background:#e0a800;color:#14163a}
+.stat b{display:block;font:800 2rem Sora}
+.cable{display:flex;gap:.5rem;margin:1.2rem 0;flex-wrap:wrap}
+.wire{flex:1 1 56px;height:86px;border-radius:12px;border:3px solid rgba(0,0,0,.18);cursor:pointer;position:relative;font:800 1.3rem Sora;display:grid;place-items:end center;padding-bottom:.4rem;color:#14163a;transition:transform .2s}
+.wire:hover,.wire.on{transform:translateY(-10px)}
+.wire.s{background:repeating-linear-gradient(135deg,var(--w) 0 12px,#fff 12px 24px)}
+#wireinfo{background:var(--card);border:2px dashed var(--pink);border-radius:14px;padding:1rem 1.2rem;min-height:3.6rem;font-weight:600}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.tab{border:2px solid var(--blue);background:transparent;color:var(--ink);font:700 .95rem Sora;padding:.6rem 1.2rem;border-radius:999px;cursor:pointer;transition:.2s}
+.tab[aria-selected=true]{background:var(--blue);color:#fff}
+.panel[hidden]{display:none}
+.panel{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.tl{border-left:4px solid var(--pink);margin-left:.5rem;padding-left:1.4rem}
+.tl div{margin-bottom:1.2rem;position:relative}
+.tl div::before{content:"";position:absolute;left:-1.95rem;top:.4rem;width:16px;height:16px;border-radius:50%;background:var(--yel);border:3px solid var(--pink)}
+.tl b{font-family:Sora}
+details{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:1rem 1.3rem;margin-bottom:.8rem}
+details[open]{border-color:var(--blue)}
+summary{cursor:pointer;font:700 1.05rem Sora}
+details p{margin:.7rem 0 0;color:var(--mut)}
+.cta{background:linear-gradient(120deg,#ff3d8b,#ffc928);text-align:center;color:#14163a}
+.cta p{margin:.8rem auto 1.6rem}
+.cta .btn.y{background:#14163a;color:#fff;box-shadow:0 6px 0 #000}
+footer{background:#0d0f2b;color:#aab1e6;text-align:center;padding:1.6rem 5vw;font-size:.9rem}
+.note{font-size:.88rem;color:var(--mut);margin-top:1.5rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><b>TKJ<span>.</span>net</b><div><a href="#tentang">Tentang</a><a href="#belajar">Belajar</a><a href="#praktik">Praktik</a><a href="#karier">Karier</a><a href="#faq">FAQ</a></div></nav>
+
+<header class="hero">
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="in">
+<h1>Hubungkan dunia lewat <em>jaringan</em></h1>
+<p>Jurusan Teknik Komputer dan Jaringan (TKJ) mengajarkan cara merakit, memasang, dan mengamankan jaringan komputer, dari kabel UTP sampai server dan cloud.</p>
+<div class="term" id="term" aria-live="off"></div>
+<a class="btn y" href="#belajar">Mulai jelajahi</a><a class="btn w" href="#karier">Lihat peluang karier</a>
+</div>
+</header>
+
+<section id="tentang"><div class="wrap">
+<h2>Apa itu TKJ?</h2>
+<p class="sub">TKJ adalah program keahlian di SMK yang fokus pada instalasi, konfigurasi, dan perawatan jaringan komputer serta sistem server. Sejak Kurikulum Merdeka, nama resminya berubah menjadi <b>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</b> dan cakupannya meluas ke telekomunikasi, fiber optik, dan jaringan nirkabel.</p>
+<div class="grid">
+<div class="card" style="--c:var(--blue)"><div class="ic">🖧</div><h3>Jaringan komputer</h3><p>Merancang LAN, WAN, dan WLAN, termasuk pengalamatan IP dan subnetting.</p></div>
+<div class="card" style="--c:var(--pink)"><div class="ic">🐧</div><h3>Administrasi server</h3><p>Mengelola server Linux dan layanan seperti DNS, web, mail, dan DHCP.</p></div>
+<div class="card" style="--c:var(--yel)"><div class="ic">🛡️</div><h3>Keamanan jaringan</h3><p>Firewall, pengaturan akses, dan pencegahan serangan siber.</p></div>
+<div class="card" style="--c:var(--cyan)"><div class="ic">📡</div><h3>Telekomunikasi</h3><p>Fiber optik, jaringan nirkabel, dan dasar infrastruktur telekomunikasi.</p></div>
+</div>
+<div class="stats">
+<div class="stat"><b>3 tahun</b>masa belajar di SMK</div>
+<div class="stat"><b>PKL</b>praktik kerja di industri</div>
+<div class="stat"><b>LSP</b>uji kompetensi BNSP</div>
+<div class="stat"><b>Lanjut</b>kuliah atau langsung kerja</div>
+</div>
+</div></section>
+
+<section id="belajar" class="alt"><div class="wrap">
+<h2>Apa yang dipelajari?</h2>
+<p class="sub">Pilih tahap untuk melihat materi yang umum diajarkan. Setiap sekolah bisa sedikit berbeda.</p>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-p="p1">Kelas X</button>
+<button class="tab" role="tab" aria-selected="false" data-p="p2">Kelas XI</button>
+<button class="tab" role="tab" aria-selected="false" data-p="p3">Kelas XII</button>
+</div>
+<div class="panel" id="p1"><div class="grid">
+<div class="card" style="--c:var(--blue)"><h3>Dasar program keahlian</h3><p>Dasar-dasar TJKT, perangkat keras komputer, dan K3 (keselamatan kerja).</p></div>
+<div class="card" style="--c:var(--pink)"><h3>Jaringan dasar</h3><p>Model OSI/TCP-IP, topologi, media transmisi, dan alamat IP.</p></div>
+<div class="card" style="--c:var(--yel)"><h3>Sistem komputer</h3><p>Merakit PC, instalasi sistem operasi, dan troubleshooting dasar.</p></div></div></div>
+<div class="panel" id="p2" hidden><div class="grid">
+<div class="card" style="--c:var(--cyan)"><h3>Administrasi infrastruktur jaringan</h3><p>Konfigurasi router, switch, VLAN, dan routing (contoh: MikroTik, Cisco).</p></div>
+<div class="card" style="--c:var(--blue)"><h3>Administrasi sistem jaringan</h3><p>Instalasi Linux Debian dan layanan server DHCP, DNS, serta web.</p></div>
+<div class="card" style="--c:var(--pink)"><h3>Teknologi layanan jaringan</h3><p>Proxy, VPN, dan layanan jaringan untuk kantor atau sekolah.</p></div></div></div>
+<div class="panel" id="p3" hidden><div class="grid">
+<div class="card" style="--c:var(--yel)"><h3>Keamanan jaringan</h3><p>Firewall, monitoring, dan pengamanan server.</p></div>
+<div class="card" style="--c:var(--cyan)"><h3>Cloud, IoT, dan nirkabel</h3><p>Dasar komputasi awan, perangkat IoT, dan jaringan wireless.</p></div>
+<div class="card" style="--c:var(--pink)"><h3>PKL dan projek akhir</h3><p>Magang di industri dan membangun proyek jaringan sendiri.</p></div></div></div>
+</div></section>
+
+<section id="praktik"><div class="wrap">
+<h2>Coba praktik: kabel UTP T568B</h2>
+<p class="sub">Salah satu keterampilan pertama anak TKJ adalah crimping kabel LAN. Klik tiap kabel untuk melihat urutan pin-nya.</p>
+<div class="cable" id="cable"></div>
+<div id="wireinfo">Klik salah satu kabel di atas.</div>
+<p class="note">Kabel straight memakai urutan yang sama di kedua ujung. Kabel crossover memakai T568A di satu ujung dan T568B di ujung lainnya.</p>
+</div></section>
+
+<section id="karier" class="alt"><div class="wrap">
+<h2>Jalur setelah lulus</h2>
+<p class="sub">Lulusan TKJ bisa langsung bekerja, berwirausaha, atau melanjutkan kuliah.</p>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-p="c1">Bekerja</button>
+<button class="tab" role="tab" aria-selected="false" data-p="c2">Kuliah</button>
+<button class="tab" role="tab" aria-selected="false" data-p="c3">Sertifikasi</button>
+</div>
+<div class="panel" id="c1"><div class="grid">
+<div class="card" style="--c:var(--blue)"><h3>Teknisi jaringan</h3><p>Memasang dan memperbaiki jaringan di perusahaan atau penyedia internet (ISP).</p></div>
+<div class="card" style="--c:var(--pink)"><h3>Network administrator</h3><p>Mengelola dan memantau jaringan agar tetap stabil dan aman.</p></div>
+<div class="card" style="--c:var(--yel)"><h3>IT support dan helpdesk</h3><p>Membantu pengguna menyelesaikan masalah perangkat dan jaringan.</p></div>
+<div class="card" style="--c:var(--cyan)"><h3>Wirausaha</h3><p>Usaha jasa pemasangan WiFi, CCTV, atau jaringan untuk rumah dan toko.</p></div></div></div>
+<div class="panel" id="c2" hidden><div class="grid">
+<div class="card" style="--c:var(--blue)"><h3>Teknik Informatika</h3><p>Jalur umum menuju software engineer, network engineer, atau data engineer.</p></div>
+<div class="card" style="--c:var(--pink)"><h3>Sistem Informasi dan Jaringan</h3><p>Fokus pada infrastruktur TI dan tata kelola sistem.</p></div>
+<div class="card" style="--c:var(--cyan)"><h3>Keamanan siber dan telekomunikasi</h3><p>Cybersecurity analyst, teknik telekomunikasi, dan bidang terkait.</p></div></div></div>
+<div class="panel" id="c3" hidden><div class="tl">
+<div><b>MikroTik MTCNA</b><br>Sertifikasi dasar router MikroTik, populer di Indonesia.</div>
+<div><b>Cisco CCNA</b><br>Standar global untuk dasar jaringan dan routing.</div>
+<div><b>CompTIA Network+</b><br>Sertifikasi jaringan yang tidak terikat satu vendor.</div>
+<div><b>BNSP (via LSP)</b><br>Sertifikat kompetensi nasional, sering ada di sekolah SMK.</div></div></div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+<h2>Pertanyaan umum</h2><p class="sub">Jawaban singkat sebelum kamu memilih jurusan.</p>
+<details><summary>Apakah harus jago komputer dulu?</summary><p>Tidak. Yang penting suka mencoba, sabar saat mencari masalah, dan mau belajar. Dasarnya diajarkan dari nol di kelas X.</p></details>
+<details><summary>Apakah TKJ banyak coding?</summary><p>Tidak sebanyak jurusan RPL. TKJ lebih banyak praktik perangkat, konfigurasi, dan server, meski dasar scripting seperti Bash atau Python sangat membantu.</p></details>
+<details><summary>Apakah TKJ sama dengan TJKT?</summary><p>Ya. TJKT adalah nama baru TKJ di Kurikulum Merdeka. Sebagian sekolah masih memakai nama TKJ.</p></details>
+<details><summary>Berapa gaji lulusan TKJ?</summary><p>Bervariasi menurut kota, perusahaan, dan pengalaman. Sertifikasi dan portofolio proyek biasanya membuat posisi tawar lebih kuat.</p></details>
+</div></section>
+
+<section class="cta"><div class="wrap">
+<h2>Siap jadi jagoan jaringan?</h2>
+<p>Mulai dari hal kecil: coba Cisco Packet Tracer gratis dan bangun jaringan pertamamu.</p>
+<button class="btn y" id="top">Kembali ke atas</button>
+</div></section>
+<footer>Informasi bersifat umum dan dapat berbeda di tiap sekolah. Cek kurikulum resmi di sekolah tujuan atau situs Kemdikbud untuk data terbaru.</footer>
+
+<script>
+// Network animation
+(function(){const c=document.getElementById('net'),x=c.getContext('2d');let w,h,n=[];
+function size(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight;n=Array.from({length:Math.min(60,Math.floor(w/22))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}))}
+function draw(){x.clearRect(0,0,w,h);for(const a of n){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>w)a.vx*=-1;if(a.y<0||a.y>h)a.vy*=-1}
+for(let i=0;i<n.length;i++){for(let j=i+1;j<n.length;j++){const d=Math.hypot(n[i].x-n[j].x,n[i].y-n[j].y);if(d<140){x.strokeStyle='rgba(255,255,255,'+(1-d/140)*.5+')';x.beginPath();x.moveTo(n[i].x,n[i].y);x.lineTo(n[j].x,n[j].y);x.stroke()}}
+x.fillStyle=i%3?'#ffc928':'#13d6e8';x.beginPath();x.arc(n[i].x,n[i].y,3,0,7);x.fill()}
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(draw)}
+size();draw();addEventListener('resize',size)})();
+// Terminal typing
+(function(){const t=document.getElementById('term'),L=['$ ping jaringan-masa-depan','Reply: 64 bytes, time=1ms','$ ssh admin@server','Akses diterima. Selamat datang!'];let i=0,j=0;
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){t.textContent=L.join('\n');t.style.whiteSpace='pre';return}
+function go(){if(i>=L.length){setTimeout(()=>{t.textContent='';i=0;j=0;go()},2500);return}
+const s=L[i];t.textContent=L.slice(0,i).join('\n')+(i?'\n':'')+s.slice(0,++j)+'▌';t.style.whiteSpace='pre';
+if(j>=s.length){i++;j=0;setTimeout(go,500)}else setTimeout(go,45)}go()})();
+// Tabs
+document.querySelectorAll('.tabs').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.tab');if(!b)return;
+g.querySelectorAll('.tab').forEach(t=>{const on=t===b;t.setAttribute('aria-selected',on);document.getElementById(t.dataset.p).hidden=!on})}));
+// T568B wires
+const W=[['Putih-oranye','#ff9a3d',1],['Oranye','#ff7a00',0],['Putih-hijau','#22b865',1],['Biru','#2f5bff',0],['Putih-biru','#2f5bff',1],['Hijau','#16a34a',0],['Putih-coklat','#8a5a3b',1],['Coklat','#6b3f24',0]];
+const cb=document.getElementById('cable'),wi=document.getElementById('wireinfo');
+W.forEach((v,k)=>{const d=document.createElement('button');d.className='wire'+(v[2]?' s':'');d.style.cssText='--w:'+v[1]+';background-color:'+v[1]+';';d.textContent=k+1;d.setAttribute('aria-label','Pin '+(k+1)+': '+v[0]);
+d.onclick=()=>{cb.querySelectorAll('.wire').forEach(x=>x.classList.remove('on'));d.classList.add('on');wi.textContent='Pin '+(k+1)+': kabel '+v[0]+(k==0||k==1?' (pasangan transmit)':k==2||k==5?' (pasangan receive)':'')};cb.appendChild(d)});
+document.getElementById('top').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>
